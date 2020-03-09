@@ -10,7 +10,9 @@ export default class FilterString extends Component {
         "Chewing Gum",
         "Video Games",
         "long random list of random random words"
-      ]
+      ],
+      unfilteredArray: [],
+      userInput: ""
     };
   }
 
