@@ -14,8 +14,11 @@ export default class FilterString extends Component {
       unfilteredArray: [],
       userInput: ""
     };
+    this.handleChange = this.handleChange.bind(this);
   }
-
+  handleChange(event) {
+    this.setState({ ...this.state, userInput: event.target.value });
+  }
   render() {
     return (
       <div id="FilterString" className="puzzleBox filterStringPB">
@@ -23,7 +26,11 @@ export default class FilterString extends Component {
         <span className="puzzleText">
           {this.state.unFilteredArray.join(", ")}
         </span>
-        <input className="inputLine" value={""} onChange={() => {}} />
+        <input
+          className="inputLine"
+          value={this.state.userInput}
+          onChange={this.handleChange}
+        />
         <button className="confirmationButton" onClick={() => {}}>
           Filter the string
         </button>
