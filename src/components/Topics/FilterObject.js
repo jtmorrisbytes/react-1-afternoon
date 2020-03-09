@@ -14,12 +14,19 @@ export default class FilterObject extends Component {
       userInput: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.filterArray = this.filterArray.bind(this);
   }
   handleInputChange(event) {
     this.setState({ ...this.state, userInput: event.target.value });
   }
   filterArray() {
-    this.state.unFilteredArray.map(obj => {});
+    let filtered = [];
+    this.state.unFilteredArray.forEach(obj => {
+      if (obj[this.state.userInput]) {
+        filtered.push(obj);
+      }
+    });
+    this.setState({ ...this.state, filteredArray: filtered });
   }
   render() {
     return (
@@ -30,8 +37,14 @@ export default class FilterObject extends Component {
           onChange={this.handleInputChange}
           value={this.state.userInput}
         />
-        <button className="confirmationButton">Filter</button>
-        <span className="resultsBox filterObjectRB"></span>
+        <button className="confirmationButton" onClick={this.filterArray}>
+          Filter
+        </button>
+        <span className="resultsBox filterObjectRB">
+          {this.state.filteredArray.map(obj => {
+            return JSON.stringify(obj);
+          })}
+        </span>
       </div>
     );
   }
