@@ -9,19 +9,28 @@ export default class FilterString extends Component {
         "onions",
         "Chewing Gum",
         "Video Games",
-        "long random list of random random words"
+        "long",
+        "random list",
+        "of random",
+        "random words"
       ],
       filteredArray: [],
       userInput: ""
     };
     this.handleChange = this.handleChange.bind(this);
-    this.filterString.bind(this);
+    this.filterString = this.filterString.bind(this);
   }
   handleChange(event) {
     this.setState({ ...this.state, userInput: event.target.value });
   }
   filterString() {
-    console.log("FILTER STRING");
+    let filtered = [];
+    this.state.unFilteredArray.forEach(string => {
+      if (string.includes(this.state.userInput)) {
+        filtered.push(string);
+      }
+    });
+    this.setState({ ...this.state, filteredArray: filtered });
   }
   render() {
     return (
