@@ -7,7 +7,6 @@ export default class EvenAndOdd extends Component {
       oddsArray: [],
       userInput: ""
     };
-    this.splitArrayRegex = /(\d+),?/g;
     this.isValidListRegex = /(\d+),?/;
     // function.call(this) might be a better solution for
     // one off fires.
