@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-export default class ClassName extends Component {
+export default class FilterString extends Component {
   render() {
-    return <div>hello from class component</div>;
+    return <div>hello from class FilterString</div>;
   }
 }
