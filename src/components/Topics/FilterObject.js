@@ -32,6 +32,11 @@ export default class FilterObject extends Component {
     return (
       <div id="FilterObject" className="puzzleBox filterObjectPB">
         <h4>FilterObject</h4>
+        <span className="puzzleText">
+          {this.state.unFilteredArray.map(obj => {
+            return JSON.stringify(obj);
+          })}
+        </span>
         <input
           className="inputLine"
           onChange={this.handleInputChange}
