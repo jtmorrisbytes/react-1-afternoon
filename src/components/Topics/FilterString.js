@@ -11,7 +11,7 @@ export default class FilterString extends Component {
         "Video Games",
         "long random list of random random words"
       ],
-      unfilteredArray: [],
+      filteredArray: [],
       userInput: ""
     };
     this.handleChange = this.handleChange.bind(this);
@@ -38,7 +38,9 @@ export default class FilterString extends Component {
         <button className="confirmationButton" onClick={this.filterString}>
           Filter the string
         </button>
-        <span className="resultsBox filterStringRB"></span>
+        <span className="resultsBox filterStringRB">
+          {this.state.filteredArray.join(", ")}
+        </span>
       </div>
     );
   }
