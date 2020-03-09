@@ -15,9 +15,13 @@ export default class FilterString extends Component {
       userInput: ""
     };
     this.handleChange = this.handleChange.bind(this);
+    this.filterString.bind(this);
   }
   handleChange(event) {
     this.setState({ ...this.state, userInput: event.target.value });
+  }
+  filterString() {
+    console.log("FILTER STRING");
   }
   render() {
     return (
@@ -31,7 +35,7 @@ export default class FilterString extends Component {
           value={this.state.userInput}
           onChange={this.handleChange}
         />
-        <button className="confirmationButton" onClick={() => {}}>
+        <button className="confirmationButton" onClick={this.filterString}>
           Filter the string
         </button>
         <span className="resultsBox filterStringRB"></span>
